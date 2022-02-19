@@ -33,6 +33,7 @@ if 'master' in git.branch():
                 if 'error: failed to push some refs to' in git.push('origin', 'main'):
                     git.push('origin', 'main --force')
                     print('main is now up to date')
+
 elif 'main' in git.branch():
     print('Already on main branch')
     git.status()
