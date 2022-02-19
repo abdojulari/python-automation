@@ -41,4 +41,4 @@ elif 'main' in git.branch():
         print('Pushed to main')
     else:
         print('No changes to commit!')
-        git.switch('master')
+        git.checkout('master')
