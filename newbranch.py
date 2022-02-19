@@ -19,12 +19,12 @@ if 'main' in git.branch('--show-current'):
             print('Pushed to ' + newbranch)
         else:
             print('No changes to commit')
-    if newbranch in git.branch('--show-current'):
-        git.checkout('main')
-        git.merge(newbranch)
-        git.push('origin', 'main')
-        print('Merged ' + newbranch + ' into main!')
-        git.branch('-d', newbranch)
-        print('Deleted ' + newbranch)
+        if newbranch in git.branch('--show-current'):
+            git.checkout('main')
+            git.merge(newbranch)
+            git.push('origin', 'main')
+            print('Merged ' + newbranch + ' into main!')
+            git.branch('-d', newbranch)
+            print('Deleted ' + newbranch)
 else:
     print('You are not in main branch')
