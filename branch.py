@@ -12,6 +12,11 @@ if 'master' in branch:
     else:
         print('No changes to commit! Switching to main branch')
         git.checkout('main')
+        if git.diff('main', 'origin/main'):
+            git.pull('origin', 'main')
+            print('Pulled from main')
+        else:
+            print('No changes to pull!')
         git.rebase('master')
         git.push('origin', 'main')
         print('main is now up to date')
