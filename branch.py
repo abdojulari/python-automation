@@ -14,7 +14,11 @@ if 'master' in branch:
         git.checkout('main')
         if git.diff('main', 'origin/main'):
             git.pull('origin', 'main')
-            print('Pulled from main')
+            if 'fatal: refusing to merge unrelated histories' in git.pull('origin', 'main'):
+                print('You have a conflict! Resolving using --allow-unrelated-histories')
+                git.pull('origin', 'main -- allow-unrelated-histories')
+            else:
+                print('Pulled from main')
         else:
             print('No changes to pull!')
         git.rebase('master')
