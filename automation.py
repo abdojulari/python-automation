@@ -7,8 +7,8 @@ import clipboard
 import time
 import os
 
-user_name = os.environ.get('USER')
-password = os.environ.get('password')
+email = os.environ.get('USER')
+password = os.environ.get('PASSWORD')
 repository = input('Enter repository name: ')
 
 driver = webdriver.Chrome('/opt/homebrew/bin/chromedriver')
