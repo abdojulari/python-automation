@@ -8,6 +8,7 @@ if 'master' in branch:
         git.add('.')
         git.commit('-m "Initial commit"')
         git.push('origin', 'master')
+        print('Pushed to master')
     else:
         print('No changes to commit')
 elif 'main' in branch:
