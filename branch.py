@@ -4,7 +4,7 @@ import time
 
 git.branch()
 print(git.branch())
-if 'master' in git.branch():
+if 'master' in git.branch('--show-current'):
     git.status()
     if 'Changes not staged for commit' in git.status():
         git.add('.')
@@ -34,7 +34,7 @@ if 'master' in git.branch():
                     git.push('origin', 'main --force')
                     print('main is now up to date')
 
-elif 'main' in git.branch():
+elif 'main' in git.branch('--show-current'):
     print('Already on main branch')
     git.status()
     if 'Changes not staged for commit' in git.status():
