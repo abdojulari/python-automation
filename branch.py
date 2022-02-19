@@ -3,6 +3,7 @@ git = Git()
 import time
 
 git.branch()
+print(git.branch())
 if 'master' in git.branch():
     git.status()
     if 'Changes not staged for commit' in git.status():
