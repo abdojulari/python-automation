@@ -19,8 +19,8 @@ if 'main' in git.branch('--show-current'):
         if newbranch in git.branch('--show-current'):
             git.checkout('main')
             git.merge(newbranch)
-            git.push('origin', 'master')
-            print('Merged ' + newbranch + ' into master')
+            git.push('origin', 'main')
+            print('Merged ' + newbranch + ' into main!')
             git.branch('-d', newbranch)
             print('Deleted ' + newbranch)
 else:
