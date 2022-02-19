@@ -10,7 +10,11 @@ if 'master' in branch:
         git.push('origin', 'master')
         print('Pushed to master')
     else:
-        print('No changes to commit')
+        print('No changes to commit! Switching to main branch')
+        git.checkout('main')
+        git.rebase('master')
+        git.push('origin', 'main')
+        print('main is now up to date')
 elif 'main' in branch:
     print('Already on main branch')
 
