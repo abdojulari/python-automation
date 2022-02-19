@@ -45,5 +45,4 @@ elif 'main' in git.branch('--show-current'):
     else:
         print('No changes to commit!')
         git.checkout('master')
-        time.sleep(5)
         git.merge('main')
