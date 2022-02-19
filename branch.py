@@ -8,7 +8,9 @@ if 'master' in branch:
         git.add('.')
         git.commit('-m "Initial commit"')
         git.push('origin', 'master')
-    new = git.checkout('main')
-    print(new)
+    else:
+        print('No changes to commit')
+elif 'main' in branch:
+    print('Already on main branch')
 
 
