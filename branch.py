@@ -1,5 +1,6 @@
 from git import Git
 git = Git()
+import time
 
 git.branch()
 if 'master' in git.branch():
@@ -42,3 +43,5 @@ elif 'main' in git.branch():
     else:
         print('No changes to commit!')
         git.checkout('master')
+        time.sleep(5)
+        git.merge('main')
