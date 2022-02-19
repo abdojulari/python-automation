@@ -12,7 +12,8 @@ if 'main' in git.branch('--show-current'):
         newbranch = input('Enter new branch name: ')
         git.checkout('-b', newbranch)
         git.add('.')
-        git.commit('-m "create a new branch"')
+        commit = input('Enter commit message: ')
+        git.commit('-m ' + commit)
         git.push('origin', newbranch)
         print('Pushed to ' + newbranch)
         
