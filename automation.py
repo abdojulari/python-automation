@@ -1,12 +1,13 @@
-password = 'Sweaty1234@'
-email = 'abdulkabirojulari@gmail.com'
-
+from dotenv import load_dotenv   #for python-dotenv method
+load_dotenv()   
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import clipboard
 import time
 import os
 
+user_name = os.environ.get('USER')
+password = os.environ.get('password')
 repository = input('Enter repository name: ')
 
 driver = webdriver.Chrome('/opt/homebrew/bin/chromedriver')
