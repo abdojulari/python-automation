@@ -17,8 +17,8 @@ if 'master' in git.branch('--show-current'):
         git.diff('main', 'origin/main')
         if '' in git.diff('main', 'origin/main'):
            print('No difference!')
-           git.rebase('master')
-           #git.push('origin', 'main')
+           git.merge('master')
+           git.push('origin', 'main')
            if 'error: failed to push some refs to' in git.push('origin', 'main'):
                 git.push('origin', 'main --force')
                 print('main is now up to date')
