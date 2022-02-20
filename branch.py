@@ -8,7 +8,8 @@ if 'master' in git.branch('--show-current'):
     git.status()
     if 'Changes not staged for commit' in git.status():
         git.add('.')
-        git.commit('-m "Initial commit"')
+        commit = input('Enter commit message: ')
+        git.commit('-m ' + commit)
         git.push('origin', 'master')
         print('Pushed to master')
     else:
@@ -22,7 +23,8 @@ elif 'main' in git.branch('--show-current'):
     git.status()
     if 'Changes not staged for commit' in git.status():
         git.add('.')
-        git.commit('-m "update project files"')
+        commit = input('Enter commit message: ')
+        git.commit('-m ' + commit)
         git.push('origin', 'main')
         print('Pushed to main')
     else:
