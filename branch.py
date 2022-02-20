@@ -19,7 +19,9 @@ if 'master' in git.branch('--show-current'):
            print('No difference!')
            git.rebase('master')
            git.push('origin', 'main')
-           print('main is now up to date')
+           if 'error: failed to push some refs to' in git.push('origin', 'main'):
+                git.push('origin', 'main --force')
+                print('main is now up to date')
         else:
             git.pull('origin', 'main')
             if 'fatal: refusing to merge unrelated histories' in git.pull('origin', 'main'):
