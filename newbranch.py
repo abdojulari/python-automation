@@ -5,7 +5,8 @@ import time
 if 'main' in git.branch('--show-current'):
     if 'Changes not staged for commit' in git.status():
         git.add('.')
-        git.commit('-m "update project files"')
+        commit = input('Enter commit message: ')
+        git.commit('-m ' + commit)
         git.push('origin', 'main')
         print('Pushed to main')
     else:
