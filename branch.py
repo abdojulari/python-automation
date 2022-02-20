@@ -32,4 +32,5 @@ elif 'main' in git.branch('--show-current'):
         git.checkout('master')
         git.merge('main')
         git.push('origin', 'master')
+        print('Merged main into master!')
        
