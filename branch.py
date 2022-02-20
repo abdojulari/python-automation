@@ -15,8 +15,8 @@ if 'master' in git.branch('--show-current'):
         print('No changes to commit! Switching to main branch')
         git.checkout('main')
         git.rebase('master')
-      
-
+        git.push('origin', 'main')
+    
 elif 'main' in git.branch('--show-current'):
     print('Already on main branch')
     git.status()
@@ -29,6 +29,4 @@ elif 'main' in git.branch('--show-current'):
         print('No changes to commit!')
         git.checkout('master')
         git.merge('main')
-        if '' in git.merge('main'):
-            git.push('origin', 'master')
-            print('Merged main into master!')
+       
