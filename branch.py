@@ -14,27 +14,9 @@ if 'master' in git.branch('--show-current'):
     else:
         print('No changes to commit! Switching to main branch')
         git.checkout('main')
-        git.diff('main', 'origin/main')
-        if '' in git.diff('main', 'origin/main'):
-           print('No difference!')
-           git.merge('master')
-           git.push('origin', 'main --force')
-           if 'error: failed to push some refs to' in git.push('origin', 'main'):
-                git.push('origin', 'main --force')
-                print('main is now up to date')
-        else:
-            git.pull('origin', 'main')
-            if 'fatal: refusing to merge unrelated histories' in git.pull('origin', 'main'):
-                print('You have a conflict! Resolving using --allow-unrelated-histories')
-                git.pull('origin', 'main -- allow-unrelated-histories')
-            else:
-                print('Pulled from main')
-
-                git.rebase('master')
-                git.push('origin', 'main')
-                if 'error: failed to push some refs to' in git.push('origin', 'main'):
-                    git.push('origin', 'main --force')
-                    print('main is now up to date')
+        git.rebase('master')
+        if 'Applying: added staged command' in git.rebase('master'):
+            print('Rebased master into main!')
 
 elif 'main' in git.branch('--show-current'):
     print('Already on main branch')
