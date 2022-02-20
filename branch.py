@@ -15,8 +15,7 @@ if 'master' in git.branch('--show-current'):
         print('No changes to commit! Switching to main branch')
         git.checkout('main')
         git.rebase('master')
-        if 'Applying: added staged command' in git.rebase('master'):
-            print('Rebased master into main!')
+      
 
 elif 'main' in git.branch('--show-current'):
     print('Already on main branch')
