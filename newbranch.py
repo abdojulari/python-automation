@@ -25,7 +25,7 @@ if 'main' in git.branch('--show-current'):
         else:
             print('No changes to commit')
     else:
-        git.pull-request('main', 'master')
+        git.pull_request('main', 'master')
         print('Pulled from main to master!')         
 elif 'master' in git.branch('--show-current'):
     print('You are not in main branch')
