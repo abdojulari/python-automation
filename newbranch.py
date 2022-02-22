@@ -20,6 +20,7 @@ if 'main' in git.branch('--show-current'):
             git.merge(newbranch)
             git.push('origin', 'main')
             print('Merged ' + newbranch + ' into main!')
+           
         else:
             print('No changes to commit')
             # merge to main from new branch 
