@@ -22,12 +22,7 @@ if 'main' in git.branch('--show-current'):
             print('Merged ' + newbranch + ' into main!')
         else:
             print('No changes to commit')
-            # merge to main from new branch
-    git.checkout('master')
-    git.merge('main')
-    git.push('origin', 'master')
-    print('Merged main into master!')  
-            
+            # merge to main from new branch 
 elif 'master' in git.branch('--show-current'):
     print('You are not in main branch...switching to main branch')
     git.checkout('main')
