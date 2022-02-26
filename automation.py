@@ -61,7 +61,6 @@ os.system('git init')
 os.system('git add .')
 os.system('git status')
 os.system('git commit -m "Initial commit"')
-os.system('git remote add origin ' + git_url)
 if 'error: remote origin already exists' in os.system('git remote add origin ' + git_url):
     #os.system('git remote set-url origin ' + git_url)
     os.system('git push -u origin main')
