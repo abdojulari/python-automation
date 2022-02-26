@@ -16,49 +16,44 @@ user_account = user_account()
 
 repository = input('Enter repository name: ')
 
-def driver():
-    driver = webdriver.Chrome('/opt/homebrew/bin/chromedriver')
-    driver.get('https://github.com/login')
-    user = driver.find_element_by_id('login_field')
-    user.send_keys(user_account[0])
-    user = driver.find_element_by_id('password')
-    user.send_keys(user_account[1])
-    sign = driver.find_element_by_xpath('/html/body/div[3]/main/div/div[4]/form/div/input[12]')
-    sign.submit()
-    time.sleep(5)
+driver = webdriver.Chrome('/opt/homebrew/bin/chromedriver')
+driver.get('https://github.com/login')
 
-    new = driver.find_element_by_xpath('/html/body/div[6]/div/aside/div[2]/div[2]/div/h2/a')
-    new.click()
+user = driver.find_element_by_id('login_field')
+user.send_keys(user_account[0])
 
-    time.sleep(5)
-    new = driver.find_element_by_xpath('/html/body/div[6]/main/div/form/div[4]/auto-check/dl/dd/input')
-    new.send_keys(repository)
+user = driver.find_element_by_id('password')
+user.send_keys(user_account[1])
 
-    # check Add a README file
-    check = driver.find_element_by_xpath('/html/body/div[6]/main/div/form/div[6]/div[5]/div[1]/label/input[2]')
-    check.click()
+sign = driver.find_element_by_xpath('/html/body/div[3]/main/div/div[4]/form/div/input[12]')
+sign.submit()
 
-    # create repository
-    create = driver.find_element_by_xpath('/html/body/div[6]/main/div/form/div[6]/button')
-    create.submit()
+time.sleep(5)
 
-    time.sleep(7)
-    # clone a repository
-    clone = driver.find_element_by_xpath('/html/body/div[6]/div/main/div[2]/div/div/div[3]/div[1]/div[2]/span/get-repo/feature-callout/details/summary')
-    clone.click()
+new = driver.find_element_by_xpath('/html/body/div[6]/div/aside/div[2]/div[2]/div/h2/a')
+new.click()
 
-    clone = driver.find_element_by_xpath('/html/body/div[6]/div/main/div[2]/div/div/div[3]/div[1]/div[2]/span/get-repo/feature-callout/details/div/div/div[1]/ul/li[1]/tab-container/div[3]/div/div/clipboard-copy')
-    clone.click()
+time.sleep(5)
+new = driver.find_element_by_xpath('/html/body/div[6]/main/div/form/div[4]/auto-check/dl/dd/input')
+new.send_keys(repository)
 
-    return user.send_keys(user_account[0]),  user.send_keys(user_account[1]), sign.submit()
-# driver = webdriver.Chrome('/opt/homebrew/bin/chromedriver')
-# driver.get('https://github.com/login')
+# check Add a README file
+check = driver.find_element_by_xpath('/html/body/div[6]/main/div/form/div[6]/div[5]/div[1]/label/input[2]')
+check.click()
 
+# create repository
+create = driver.find_element_by_xpath('/html/body/div[6]/main/div/form/div[6]/button')
+create.submit()
 
+time.sleep(2)
+# clone a repository
+clone = driver.find_element_by_xpath('/html/body/div[6]/div/main/div[2]/div/div/div[3]/div[1]/div[2]/span/get-repo/feature-callout/details/summary')
+clone.click()
 
+clone = driver.find_element_by_xpath('/html/body/div[6]/div/main/div[2]/div/div/div[3]/div[1]/div[2]/span/get-repo/feature-callout/details/div/div/div[1]/ul/li[1]/tab-container/div[3]/div/div/clipboard-copy')
+clone.click()
 
-
-
+time.sleep(2)
 git_url = clipboard.paste()
 print(git_url)
 
