@@ -3,7 +3,7 @@
 ## Install using
 
 ```Python
-$ pip install -U python-dotenv
+pip install -U python-dotenv
 
 ```
 
@@ -36,4 +36,3 @@ git difftool master main
 git log --all --decorate --oneline --graph --pretty="%C(yellow) Hash: %h %C(blue)Date: %ad %C(red) Message:  %S" --date=human
 
 ```
-
