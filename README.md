@@ -1,6 +1,6 @@
 # python-automation
 
-## Install using
+## Install necessary packages
 
 ```Python
 pip3 install -U python-dotenv
@@ -11,14 +11,15 @@ pip3 install selenium
 
 ```
 
-## To count branches
+
+### To count branches
 
 ```python
  git branch -a | wc -l
 
 ```
 
-## Use show-branch
+### Use show-branch
 
 ```python
 
@@ -26,7 +27,7 @@ git show-branch master main
 
 ```
 
-## use difftool
+### use difftool
 
 ```python
 
@@ -34,7 +35,7 @@ git difftool master main
 
 ```
 
-## using graph
+### using graph
 
 ```python
 git log --all --decorate --oneline --graph --pretty="%C(yellow) Hash: %h %C(blue)Date: %ad %C(red) Message:  %S" --date=human
