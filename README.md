@@ -3,7 +3,11 @@
 ## Install using
 
 ```Python
-pip install -U python-dotenv
+pip3 install -U python-dotenv
+brew install chromedriver
+pip3 install gitpython
+pip3 install clipboard
+pip3 install selenium  
 
 ```
 
